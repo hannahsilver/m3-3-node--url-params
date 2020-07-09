@@ -1,0 +1,13 @@
+<%- include( '../partials/header') %>
+<div class="page-box">
+    <div class="song-box">
+        <h2><%= song.title %></h2>
+        <p class="song-box-artist"><%= song.artist %></p>
+        <p class="song-box-stream"><%= song.streams %></p>
+    </div>
+    <div class="nav-links">
+    <a href=/top50/song/<%= song.rank - 1 %>> < </a>
+    <a href=/top50/song/<%= song.rank + 1 %>> > </a>
+    </div>
+</div>
+<%- include( '../partials/footer') %>

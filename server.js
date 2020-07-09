@@ -20,6 +20,22 @@ app.get("/top50", (req, res) => {
   });
 });
 
+app.get("/top50/song/:rank", (req, res) => {
+  const rank = req.params.rank - 1;
+  if (top50[rank]) {
+    res.render("pages/song-page", {
+      title: `Song #${top50[rank].rank}`,
+      song: top50[rank],
+    });
+  } else {
+    res.status(404);
+    res.render("pages/fourOhFour", {
+      title: "I got nothing",
+      path: req.originalUrl,
+    });
+  }
+});
+
 app.get("/", (req, res) => {
   res.send("This is the homepage");
 });
